@@ -15,25 +15,20 @@ class SecondVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .systemMint
+        view.backgroundColor = UIColor(ciColor: CIColor(red: 0.5, green: 1, blue: 0.8, alpha: 0.5))
         setUpUIs()
-        
-        
     }
     
     private func setUpUIs() {
-        
         createTextField(placeHolder: "Enter words", top: 120, bottom: 710, leading: 15, trailing: 15)
-        
-        
-        
+        createTextField(placeHolder: "Some words", top: 190, bottom: 640, leading: 15, trailing: 15)
     }
     
     func createTextField(placeHolder: String,top: Int, bottom: Int,leading :Int, trailing:Int ) {
         let textField = UITextField()
         textField.placeholder = placeHolder
         textField.layer.cornerRadius = 6
-        textField.layer.borderWidth = 1
+//        textField.layer.borderWidth = 1
         textField.textAlignment = .left
         textField.backgroundColor = .white
         view.addSubview(textField)

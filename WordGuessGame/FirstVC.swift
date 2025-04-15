@@ -36,12 +36,16 @@ class FirstVC: UIViewController {
         
         buttonStart.setTitleColor(.white, for: UIControl.State.normal)
         buttonStart.frame = CGRect(x: 110, y: 700, width: screenWidth - 220, height: 50)
-        buttonStart.layer.cornerRadius = 5
-        buttonStart.layer.borderWidth = 0
-        buttonStart.setTitle("Start", for: .normal)
-        buttonStart.titleLabel?.font = UIFont.boldSystemFont(ofSize: 27)
-        buttonStart.backgroundColor = UIColor(ciColor: CIColor(red: 0.9, green: 0.5, blue: 0.1, alpha: 0.5))
+        buttonStart.layer.cornerRadius = 8
+        buttonStart.layer.borderWidth = 1
+//        buttonStart.setTitle("Start", for: .normal)
+//        buttonStart.titleLabel?.font = UIFont.boldSystemFont(ofSize: 27)
+//        buttonStart.backgroundColor = UIColor(ciColor: CIColor(red: 0.9, green: 0.5, blue: 0.1, alpha: 0.5))
         buttonStart.addTarget(self, action: #selector(startButtonMethod), for: .touchUpInside)
+        
+        
+        buttonStart.setBackgroundImage(UIImage(named: "ll"), for: .normal)
+        buttonStart.clipsToBounds = true
         
         // Button yan gölgeleme ekleme kod bloğu
         buttonStart.layer.shadowColor = UIColor.black.cgColor
@@ -53,18 +57,22 @@ class FirstVC: UIViewController {
         
         buttonHighScore.setTitleColor(.white, for: UIControl.State.normal)
         buttonHighScore.frame = CGRect(x: 110, y: 630, width: screenWidth - 220, height: 50)
-        buttonHighScore.layer.cornerRadius = 5
-        buttonHighScore.layer.borderWidth = 0
-        buttonHighScore.setTitle("High Scores", for: .normal)
-        buttonHighScore.titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
-        buttonHighScore.backgroundColor = UIColor(ciColor: CIColor(red: 0.9, green: 0.5, blue: 0.1, alpha: 0.5))
+        buttonHighScore.layer.cornerRadius = 8
+        buttonHighScore.layer.borderWidth = 1
+//        buttonHighScore.setTitle("High Scores", for: .normal)
+//        buttonHighScore.titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
+//        buttonHighScore.backgroundColor = UIColor(ciColor: CIColor(red: 0.9, green: 0.5, blue: 0.1, alpha: 0.5))
         buttonHighScore.addTarget(self, action: #selector(highScoreButtonMethod), for: .touchUpInside)
+        
+        // Butona resim ekleme kod bloğu
+        buttonHighScore.setBackgroundImage(UIImage(named: "mm"), for: .normal)
+        buttonHighScore.clipsToBounds = true
         
         // Button yan gölgeleme ekleme kod bloğu
         buttonHighScore.layer.shadowColor = UIColor.black.cgColor
         buttonHighScore.layer.shadowOffset = CGSize(width: 4, height: 8)
         buttonHighScore.layer.shadowOpacity = 0.9
-        buttonHighScore.layer.shadowRadius = 4
+        buttonHighScore.layer.shadowRadius = 8
         view.addSubview(buttonHighScore)
         
         
@@ -82,6 +90,7 @@ class FirstVC: UIViewController {
         print("These are high Scores")
     }
     
+    // Buton zıplatma özelliği ekleme kodu
     func animateButtonBounce(_ button: UIButton) {
         UIView.animate(withDuration: 0.1,
                        animations: {
@@ -91,7 +100,7 @@ class FirstVC: UIViewController {
                            UIView.animate(withDuration: 0.1) {
                                button.transform = CGAffineTransform.identity
                            }
-                       })
+                })
     }
 }
 
