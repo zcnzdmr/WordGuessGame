@@ -54,7 +54,7 @@ class SecondVC: UIViewController {
         userGuessTF6 = createTextField(placeHolder: "_", top: 190, width: 50, leading: 341, height: 45)
     }
     
-    func createTextField(placeHolder: String,top: Int, width: Int,leading :Int, height:Int ) -> UITextField {
+    func createTextField(placeHolder: String,top: Int, width: Int,leading :Int, height:Int, tag : Int = 0 ) -> UITextField {
         let textField = UITextField()
         textField.placeholder = placeHolder
         textField.layer.cornerRadius = 6
@@ -62,10 +62,11 @@ class SecondVC: UIViewController {
         textField.textAlignment = .center
         textField.backgroundColor = .white
         textField.layer.borderWidth = 0.5
+        textField.autocorrectionType = .no
+        textField.tag = tag
         textField.frame = CGRect(x: leading, y: top, width: width, height: height)
         view.addSubview(textField)
-        
-        
+
         
 //        textField.translatesAutoresizingMaskIntoConstraints = false
         
@@ -92,7 +93,7 @@ class SecondVC: UIViewController {
                 userGuessTF6.isHidden = true
                 
                 if let one = userGuessTF1.text {
-                    if one.count > 1 && one.isEmpty {
+                    if one.isEmpty && one.count > 1 {
                         print("uyarı1")
                     }else {
                             if randomName.first == Character(one) {
@@ -120,4 +121,7 @@ class SecondVC: UIViewController {
             }
         }
     }
+    
 }
+
+
